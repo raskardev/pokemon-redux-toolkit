@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import {} from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPokemons } from "../store/modules/pokemons";
+import PokemonCard from "./PokemonCard";
 
 const PokemonsList = () => {
   const dispatch = useDispatch();
@@ -12,11 +13,13 @@ const PokemonsList = () => {
   }, []);
 
   return (
-    <ul>
+    <Row>
       {list.map(item => (
-        <li>{item.name.toUpperCase()}</li>
+        <Col>
+          <PokemonCard pokemon={item} />
+        </Col>
       ))}
-    </ul>
+    </Row>
   );
 };
 
